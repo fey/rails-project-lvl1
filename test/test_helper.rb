@@ -5,3 +5,12 @@ require 'hexlet_code'
 
 require 'minitest/autorun'
 require 'minitest-power_assert'
+
+class Minitest::Test
+  def read_fixture(name)
+    fixture_path = File.expand_path("#{__dir__}/fixtures/#{name}.html")
+
+
+    File.read(fixture_path).strip
+  end
+end
