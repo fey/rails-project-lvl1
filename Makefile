@@ -9,3 +9,5 @@ lint:
 
 lint-fix:
 	bundle exec rubocop -A
+
+.PHONY: test
