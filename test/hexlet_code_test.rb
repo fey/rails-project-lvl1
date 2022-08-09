@@ -2,8 +2,6 @@
 
 require 'test_helper'
 
-
-
 class HexletCodeTest < Minitest::Test
   def test_empty_form
     user = User.new name: 'rob'

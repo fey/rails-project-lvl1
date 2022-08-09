@@ -12,7 +12,6 @@ class Minitest::Test
   def read_fixture(name)
     fixture_path = File.expand_path("#{__dir__}/fixtures/#{name}.html")
 
-
     File.read(fixture_path).strip
   end
 end
