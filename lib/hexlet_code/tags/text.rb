@@ -5,7 +5,7 @@ class HexletCode::Tags::Text
     value = tag_data[:value]
 
     attrs = {
-      name: tag_data[:name]
+      name: tag_data[:name],
       cols: 20,
       rows: 40
     }.merge(tag_data.except(:value))
