@@ -7,7 +7,7 @@ class HexletCode::FormBuilder
     @model = model
     @form = {
       inputs: [],
-      submit: {}
+      submit: nil
     }
   end
 
@@ -19,6 +19,12 @@ class HexletCode::FormBuilder
       as: attrs.fetch(:as, :string),
       value: value,
       attrs: attrs.except(:as)
+    }
+  end
+
+  def submit(value = 'Save')
+    @form[:submit] = {
+      value: value
     }
   end
 end

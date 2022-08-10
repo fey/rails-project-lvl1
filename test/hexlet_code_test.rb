@@ -15,13 +15,14 @@ class HexletCodeTest < Minitest::Test
     assert { actual == expected }
   end
 
-  def test_form_with_fields
-    user = User.new name: 'rob', job: 'hexlet', gender: 'm'
-    expected = read_fixture('form_with_fields')
+  def test_form_with_submit
+    user = User.new job: 'hexlet'
+    expected = read_fixture('with_submit')
 
     actual = HexletCode.form_for user do |f|
       f.input :name
-      f.input :job, as: :text
+      f.input :job
+      f.submit
     end
 
     assert_equal actual, expected
