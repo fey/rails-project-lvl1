@@ -1,7 +1,11 @@
 # frozen_string_literal: true
 
-class HexletCode::Tags::String
-  def self.build(name, value, attrs = {})
-    HexletCode::Tag.build('input', name: name, type: 'text', value: value, **attrs)
+module HexletCode
+  module Tags
+    class String
+      def self.build(name, value, attrs = {})
+        HexletCode::Tag.build('input', name: name, type: 'text', value: value, **attrs)
+      end
+    end
   end
 end

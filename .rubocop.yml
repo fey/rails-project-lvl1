@@ -1,21 +1,15 @@
----
-
-require:
-  - rubocop-minitest
-  - rubocop-rake
-
 AllCops:
+  Exclude:
+    - "**/vendor/**/*"
+    - "**/*.gemspec"
+    - "spec/**"
   NewCops: enable
-  TargetRubyVersion: 3.0
+  TargetRubyVersion: 3.0.2
+  SuggestExtensions: false
 
 Style/Documentation:
   Enabled: false
-
-Style/ClassAndModuleChildren:
-  Enabled: false
-
 Metrics/MethodLength:
   Enabled: false
-
-Metrics/AbcSize:
+Style/AsciiComments:
   Enabled: false
