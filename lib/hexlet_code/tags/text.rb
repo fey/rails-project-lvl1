@@ -1,15 +1,14 @@
 # frozen_string_literal: true
 
 class HexletCode::Tags::Text
-  def self.build(tag_data)
-    value = tag_data[:value]
-
-    attrs = {
-      name: tag_data[:name],
+  def self.build(name, value, attrs = {})
+    default_attrs = {
       cols: 20,
       rows: 40
-    }.merge(tag_data.except(:value))
+    }
 
-    HexletCode::Tag.build('textarea', attrs) { value }
+    input_attrs = default_attrs.merge(attrs)
+
+    HexletCode::Tag.build('textarea', name: name, **input_attrs) { value }
   end
 end

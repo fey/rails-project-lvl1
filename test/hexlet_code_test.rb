@@ -19,10 +19,10 @@ class HexletCodeTest < Minitest::Test
     user = User.new job: 'hexlet'
     expected = read_fixture('with_submit')
 
-    actual = HexletCode.form_for user do |f|
-      f.input :name
-      f.input :job
-      f.submit
+    actual = HexletCode.form_for user, url: '#' do |f|
+      f.input :name, class: 'user-input'
+      f.input :job, as: :text, rows: 50, cols: 50
+      f.submit 'Wow'
     end
 
     assert_equal actual, expected

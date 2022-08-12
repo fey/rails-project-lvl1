@@ -4,7 +4,7 @@ module HexletCode
   class Tag
     def self.build(name, attributes = {})
       singled_tags = %w[img br input]
-      builded_attributes = attributes.map do |key, value|
+      builded_attributes = attributes.compact.map do |key, value|
         " #{key}=\"#{value}\""
       end.join
 

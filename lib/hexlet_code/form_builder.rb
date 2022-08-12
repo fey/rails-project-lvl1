@@ -11,12 +11,13 @@ class HexletCode::FormBuilder
     }
   end
 
-  def input(name, attrs = {})
+  def input(name, **attrs)
+    input_type = attrs.fetch(:as, :string)
     value = @model.public_send(name)
 
     @form[:inputs] << {
       name: name,
-      as: attrs.fetch(:as, :string),
+      type: input_type,
       value: value,
       attrs: attrs.except(:as)
     }

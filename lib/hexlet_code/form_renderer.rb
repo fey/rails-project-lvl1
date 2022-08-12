@@ -1,23 +1,27 @@
 # frozen_string_literal: true
 
 class HexletCode::FormRenderer
-  def self.render(form_data, url, method)
+  def self.render(form, url, method)
     form_controls = []
 
-    form_data[:inputs].each do |input|
-      label = HexletCode::Tag.build('label', for: input[:name]) { input[:name].capitalize }
+    form[:inputs].each do |input|
+      name, value, type, attrs = input.values_at(:name, :value, :type, :attrs)
+      label = HexletCode::Tag.build('label', for: name) { name.capitalize }
+
+      type = input.fetch(:type)
+      tag_class = Object.const_get("HexletCode::Tags::#{type.capitalize}")
+
       form_controls << label
 
-      tag_class = Object.const_get("HexletCode::Tags::#{input[:as].capitalize}")
-      form_controls << tag_class.build(input)
+      form_controls << tag_class.build(name, value, attrs)
     end
 
-    if form_data.fetch(:submit)
+    if form.fetch(:submit)
       submit_button = HexletCode::Tag.build(
         'input',
         name: 'commit',
         type: 'submit',
-        value: form_data.dig(:submit, :value)
+        value: form.dig(:submit, :value)
       )
       form_controls.append submit_button
     end
