@@ -20,3 +20,6 @@ jobs:
       run: make test
       env:
         CI: true
+
+    - name: Upload coverage to Codecov
+      uses: codecov/codecov-action@v3
