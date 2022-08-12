@@ -15,7 +15,7 @@ module HexletCode
         )
       end
 
-      HexletCode::Tag.build('form', action: url, method: method) { inputs.append(submit_button).compact.join }
+      HexletCode::Tag.build('form', action: url, method:) { inputs.append(submit_button).compact.join }
     end
 
     def self.build_inputs(inputs_data)

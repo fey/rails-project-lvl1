@@ -4,7 +4,7 @@ module HexletCode
   module Tags
     class String
       def self.build(name, value, attrs = {})
-        HexletCode::Tag.build('input', name: name, type: 'text', value: value, **attrs)
+        HexletCode::Tag.build('input', name:, type: 'text', value:, **attrs)
       end
     end
   end

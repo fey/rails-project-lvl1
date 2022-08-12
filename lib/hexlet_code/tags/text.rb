@@ -11,7 +11,7 @@ module HexletCode
 
         input_attrs = default_attrs.merge(attrs)
 
-        HexletCode::Tag.build('textarea', name: name, **input_attrs) { value }
+        HexletCode::Tag.build('textarea', name:, **input_attrs) { value }
       end
     end
   end

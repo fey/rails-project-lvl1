@@ -17,16 +17,16 @@ module HexletCode
       value = @model.public_send(name)
 
       @form[:inputs] << {
-        name: name,
+        name:,
         type: input_type,
-        value: value,
+        value:,
         attrs: attrs.except(:as)
       }
     end
 
     def submit(value = 'Save')
       @form[:submit] = {
-        value: value
+        value:
       }
     end
   end
